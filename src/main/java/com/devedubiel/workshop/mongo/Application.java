@@ -1,4 +1,4 @@
-package com.devedubiel.workshop.mongo.application;
+package com.devedubiel.workshop.mongo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
