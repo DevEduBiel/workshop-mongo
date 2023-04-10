@@ -1,6 +1,7 @@
 package com.devedubiel.workshop.mongo.services;
 
 import com.devedubiel.workshop.mongo.domain.User;
+import com.devedubiel.workshop.mongo.dto.UserDTO;
 import com.devedubiel.workshop.mongo.repository.UserRepository;
 import com.devedubiel.workshop.mongo.services.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,11 @@ public class UserService {
     public User findById(String id) {
         Optional<User> user = userRepository.findById(id);
         return user.orElseThrow(() -> new ObjectNotFoundException("Object not found"));
+    }
+    public User insert(User user) {
+        return userRepository.insert(user);
+    }
+    public User fromDTO(UserDTO objDto) {
+        return new User(objDto.getId(), objDto.getName(), objDto.getEmail());
     }
 }
